@@ -1,0 +1,54 @@
+#设置端口
+server:
+  port: 8081
+  #可以自动添加项目文件路径
+  #servlet:
+  #  context-path:/da
+spring:
+  datasource:
+    username: root
+    password: weida
+    url: jdbc:mysql://loacalhost/test?useUnicode=true&characterEncoding=utf8
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    #   数据源其他配置
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    #   配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+    filters: stat,wall,log4j
+    maxPoolPreparedStatementPerConnectionSize: 20
+    useGlobalDataSourceStat: true
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+    #导入国际化配置文件
+  messages:
+    basename: i18n.login
+    #关闭模板缓存
+  thymeleaf:
+    cache: false
+
+#mybatis配置  血的教训 type-aliases-package: 不要多S！！！
+mybatis:
+  type-aliases-package: top.weidaboy.pojo   #实体类所在包名
+  mapper-locations: mybatis/*.xml   #配置文件
+
+#设置redis服务器
+redis:
+  host: 127.0.0.1   #redis的服务器地址
+  #password: weida        #设置密码
+  jedis:
+    pool:
+      max-active: 8
+      max-wait: -1
+      max-idle: 500
+      min-idle: 0
+  lettuce:
+    shutdown-timeout: 30000

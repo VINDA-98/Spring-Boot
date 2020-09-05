@@ -1,0 +1,13 @@
+server:
+  port: 80
+spring:
+  mail:
+    username: YourQQ@qq.com
+    password: your password
+    host: smtp.qq.com
+    #qq需要配置ssl
+    properties:
+      mail: true
+      smtp: true
+      ssl: true
+      enable: true

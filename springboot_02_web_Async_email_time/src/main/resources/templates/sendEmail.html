@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Vinda的同步、异步定时邮件发送</title>
+</head>
+<body>
+<div style="text-align: center">
+    <div id="sendSync">
+        <form method="get" name="Sync"  th:action="@{/sendSyncEmail}">
+            主&emsp;题：<input type="text" id="Subject" name="Subject" /><br>
+            内&emsp;容：<input type="text" id="content" name="content" /><br>
+            收件人：<input type="text" id="people" name="people" /><br>
+            <input type="submit" value="发送">
+        </form>
+    </div>
+
+    <div id="sendAsync">
+        <form method="get" name="Async" th:action="@{/sendAsyncEmail}">
+            主&emsp;题：<input type="text" id="ASubject" name="ASubject" /><br>
+            内&emsp;容：<input type="text" id="Acontent" name="Acontent" /><br>
+            收件人：<input type="text" id="Apeople" name="Apeople" /><br>
+            <input type="submit" value="发送">
+        </form>
+    </div>
+
+</div>
+
+</body>
+</html>

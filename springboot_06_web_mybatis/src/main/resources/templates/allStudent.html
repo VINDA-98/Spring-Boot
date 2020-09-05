@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>全部学生列表</title>
+</head>
+<body>
+<!--<a th:href="@{/student/addStudent}">添加学生信息</a>-->
+<!--<br>-->
+<!--<a th:href="@{/student/updateStudent}">更新学生信息</a>-->
+<hr />
+<div>
+    <p>加油！Vinda</p>
+    <table>
+        <tr>
+            <th>id</th>
+            <th>sname</th>
+            <th>py</th>
+        </tr>
+
+        <tr th:each="stu:${students}">
+            <td  th:text="${stu.id}"></td>
+            <td  th:text="${stu.name}"></td>
+            <td  th:text="${stu.py}"></td>
+        </tr>
+    </table>
+</div>
+
+<!--<div class="modal-footer no-margin-top">-->
+<!--    &lt;!&ndash;    使用分页插件&ndash;&gt;-->
+<!--    <ul class="pagination pull-right no-margin">-->
+
+<!--        &lt;!&ndash; 首页 &ndash;&gt;-->
+<!--        <li>-->
+<!--            <a th:href="'/pagehelper/1'">首页</a>-->
+<!--        </li>-->
+
+<!--        &lt;!&ndash; 上一页 &ndash;&gt;-->
+<!--        <li th:if="${currentPage - 1 > 0}">-->
+<!--            <a th:href="'/pagehelper/' + ${currentPage - 1}" th:text="上一页"></a>-->
+<!--        </li>-->
+
+<!--        <li th:text="'第'+${currentPage}+'页'">-->
+<!--        </li>-->
+
+
+<!--        &lt;!&ndash; 下一页 &ndash;&gt;-->
+<!--        <li th:if="${currentPage + 1 <= pageCount}">-->
+<!--            <a th:href="'/pagehelper/' + ${currentPage + 1}" th:text="下一页"></a>-->
+<!--        </li>-->
+
+<!--        &lt;!&ndash; 尾页 &ndash;&gt;-->
+<!--        <li>-->
+<!--            <a th:href="'/pagehelper/' + ${pageCount}">尾页</a>-->
+<!--        </li>-->
+
+<!--    </ul>-->
+<!--</div>-->
+
+</body>
+</html>
