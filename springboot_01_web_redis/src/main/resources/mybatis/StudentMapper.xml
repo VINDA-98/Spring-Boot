@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.weidaboy.mapper.StudentMapper">
+
+    <!--    查询所有学生-->
+    <select id="findAllStudents" resultType="Student" >
+            select *from student;
+    </select>
+
+    <!--    登录方法-->
+    <select id="login" resultType="Student" >
+            select *from student where sname=#{sname} and password = #{password};
+    </select>
+</mapper>
+
+
+

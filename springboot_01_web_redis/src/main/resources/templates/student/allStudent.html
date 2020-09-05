@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:shiro="http://www.thymeleaf.org/thymeleaf-extras-shiro">
+
+<head>
+    <meta charset="UTF-8">
+    <title>全部学生列表</title>
+</head>
+<body>
+
+<div shiro:hasPermission="student:add">
+    进入用户添加功能： <a th:href="@{/student/addStudent}">用户添加</a><br/>
+</div>
+<hr />
+<div shiro:hasPermission="student:update">
+    进入用户更新功能： <a th:href="@{/student/updateStudent}">用户更新</a><br/>
+</div>
+<hr />
+<div shiro:hasPermission="student:delete">
+    进入用户删除功能： <a th:href="@{/student/deleteStudent}">用户删除</a><br/>
+</div>
+
+<hr />
+<div>
+    <table>
+        <tr th:each="stu:${allStudents}">
+            <td  th:text="${stu.id}"></td>
+            <td  th:text="${stu.sname}"></td>
+            <td  th:text="${stu.sage}"></td>
+        </tr>
+    </table>
+
+</div>
+
+</body>
+</html>
