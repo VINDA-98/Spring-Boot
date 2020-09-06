@@ -1,0 +1,12 @@
+#设置redis服务器
+redis:
+  host: 127.0.0.1   #redis的服务器地址
+  #password: weida        #设置密码
+  jedis:
+    pool:
+      max-active: 8
+      max-wait: -1
+      max-idle: 500
+      min-idle: 0
+  lettuce:
+    shutdown-timeout: 30000
