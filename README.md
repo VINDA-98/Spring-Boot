@@ -6,6 +6,8 @@ MySpringbootDemo
 己的代码，只是希望自己的代码能帮助需要的人，给大家一个基础学习小小帮助~
 
 
+springboot_blog: 参考B站Up主做的一个小博客程序
+
 springboot_01_web_redis：
 	整合了redis，查询时候会先从缓存中获取数据，使用时候先修改相关数据库信息
 	
