@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th=www.thymeleaf.org>
+<head>
+    <meta charset="UTF-8">
+    <title>ECharts</title>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/echarts/4.6.0/echarts.min.js"></script>
+</head>
+<body>
+<!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+<div id="main" style="width: 800px;height:600px;"></div>
+
+<!--<input type="hidden" th:value="${skirt}" id="skirt"/>-->
+<!--<input type="hidden" th:value="${nums}" id="nums"/>-->
+
+
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main'));
+
+    var skirt=$("#skirt").val();
+    var nums=$("#nums").val();
+
+    var names=[];    //横坐标数组（实际用来盛放X轴坐标值）
+    var values=[];    //纵坐标数组（实际用来盛放Y坐标值）
+    $.ajax({
+        type : "post",
+        //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
+        async : true,
+        url : "/echarts/allstudent",    //请求发送到dataActiont处
+        data : {},
+        dataType : "json",        //返回数据形式为json
+        success : function(result) {
+            //请求成功时执行该函数内容，result即为服务器返回的json对象
+            if (result) {
+                // 指定图表的配置项和数据
+                //alert(result.students.length);
+                for(var i=0;i<5;i++) {
+                    names.push(result.students[i].sname);
+                    values.push(result.students[i].money);
+                }
+                    var option = {
+                    title: {
+                        text: '财富自由'
+                    },
+                    tooltip: {},
+                    legend: {
+                        data:['今日收入']
+                    },
+                    xAxis: {
+                        name:'姓名',
+                        data: names
+                    },
+                    yAxis: {
+                        name:'收入',
+                        type: 'value'
+                    },
+                        //今日收入
+                    series: [{
+                        name: '收入',
+                        type: 'bar',
+                        data: values
+                    }]
+                };
+
+                // 使用刚指定的配置项和数据显示图表。
+                myChart.setOption(option);
+            }
+        },
+        error : function(errorMsg) {
+            //请求失败时执行该函数
+            alert("图表请求数据失败!");
+            myChart.hideLoading();
+        }
+    });//end ajax
+
+
+
+
+</script>
+</body>

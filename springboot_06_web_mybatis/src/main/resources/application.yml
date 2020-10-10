@@ -8,7 +8,7 @@ spring:
   datasource:
     username: root
     password: weida
-    url: jdbc:mysql://loacalhost/test?useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://localhost:3306/study?useUnicode=true&characterEncoding=utf8
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
     #   数据源其他配置
@@ -34,6 +34,14 @@ spring:
     #关闭模板缓存
   thymeleaf:
     cache: false
+    #开启热部署
+  devtools:
+    restart:
+      enabled: true  #设置开启热部署
+      additional-paths: src/main/java #重启目录
+      exclude: WEB-INF/**
+    freemarker:
+     cache: false    #页面不加载缓存，修改即时生效
 
 #mybatis配置  血的教训 type-aliases-package: 不要多S！！！
 mybatis:
@@ -52,3 +60,5 @@ redis:
       min-idle: 0
   lettuce:
     shutdown-timeout: 30000
+
+

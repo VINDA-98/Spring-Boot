@@ -10,7 +10,10 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Student implements Serializable {
+    private static final long serialVersionUID = 5809996678272943999L;
     private Integer id;
-    private String name;
-    private String py;
+    private String sname;
+    private String password;
+    private String gid;
+    private String money;
 }
