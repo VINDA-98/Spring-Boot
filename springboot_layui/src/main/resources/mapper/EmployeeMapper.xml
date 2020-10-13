@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.geek51.domain.Employee">
-  <resultMap id="BaseResultMap" type="cn.geek51.domain.Employee">
+<mapper namespace="top.weidaboy.domain.Employee">
+  <resultMap id="BaseResultMap" type="top.weidaboy.domain.Employee">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="sex" jdbcType="BIT" property="sex" />
@@ -11,8 +11,8 @@
     <result column="idcard" jdbcType="VARCHAR" property="idcard" />
     <result column="address" jdbcType="VARCHAR" property="address" />
     <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
-    <association property="position" javaType="cn.geek51.domain.Position" column="position_id" select="cn.geek51.domain.Position.selectOneByPrimaryKey"/>
-    <association property="department" javaType="cn.geek51.domain.Department" column="dept_id" select="cn.geek51.domain.Department.selectOneByPrimaryKey"/>
+    <association property="position" javaType="top.weidaboy.domain.Position" column="position_id" select="top.weidaboy.domain.Position.selectOneByPrimaryKey"/>
+    <association property="department" javaType="top.weidaboy.domain.Department" column="dept_id" select="top.weidaboy.domain.Department.selectOneByPrimaryKey"/>
   </resultMap>
   <sql id="Base_Column_List">
     id, name, sex, phone, email, education, idcard, address, position_id, dept_id, created_time
@@ -122,7 +122,7 @@
     delete from employee
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="cn.geek51.domain.Employee">
+  <insert id="insert" parameterType="top.weidaboy.domain.Employee">
     insert into employee (id, name, sex, phone, 
       email, education, idcard, 
       address, position_id, dept_id,
@@ -132,7 +132,7 @@
       #{address,jdbcType=VARCHAR}, #{position.id,jdbcType=INTEGER}, #{dept.id,jdbcType=INTEGER},
       #{createdTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="cn.geek51.domain.Employee">
+  <insert id="insertSelective" parameterType="top.weidaboy.domain.Employee">
     insert into employee
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -205,7 +205,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="cn.geek51.domain.Employee">
+  <update id="updateByPrimaryKeySelective" parameterType="top.weidaboy.domain.Employee">
     update employee
     <set>
       <if test="name != null">
@@ -241,7 +241,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="cn.geek51.domain.Employee">
+  <update id="updateByPrimaryKey" parameterType="top.weidaboy.domain.Employee">
     update employee
     set name = #{name,jdbcType=VARCHAR},
       sex = #{sex,jdbcType=BIT},

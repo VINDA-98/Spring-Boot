@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.geek51.domain.UserAuth">
-  <resultMap id="BaseResultMap" type="cn.geek51.domain.UserAuth">
+<mapper namespace="top.weidaboy.domain.UserAuth">
+  <resultMap id="BaseResultMap" type="top.weidaboy.domain.UserAuth">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="username" jdbcType="VARCHAR" property="username" />
     <result column="password" jdbcType="VARCHAR" property="password" />
@@ -71,7 +71,7 @@
     delete from userauth
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="cn.geek51.domain.UserAuth">
+  <insert id="insert" parameterType="top.weidaboy.domain.UserAuth">
     insert into userauth (id, username,
       password, is_admin, created_time
       )
@@ -79,7 +79,7 @@
       #{password,jdbcType=VARCHAR}, #{isAdmin,jdbcType=BIT}, #{createdTime,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="cn.geek51.domain.UserAuth">
+  <insert id="insertSelective" parameterType="top.weidaboy.domain.UserAuth">
     insert into userauth
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -116,7 +116,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="cn.geek51.domain.UserAuth">
+  <update id="updateByPrimaryKeySelective" parameterType="top.weidaboy.domain.UserAuth">
     update userauth
     <set>
       <if test="username != null">
@@ -134,7 +134,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="cn.geek51.domain.UserAuth">
+  <update id="updateByPrimaryKey" parameterType="top.weidaboy.domain.UserAuth">
     update userauth
     set
       username = #{username,jdbcType=VARCHAR},

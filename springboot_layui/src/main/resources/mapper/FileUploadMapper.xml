@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.geek51.domain.FileUpload">
-  <resultMap id="BaseResultMap" type="cn.geek51.domain.FileUpload">
+<mapper namespace="top.weidaboy.domain.FileUpload">
+  <resultMap id="BaseResultMap" type="top.weidaboy.domain.FileUpload">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="title" jdbcType="VARCHAR" property="title" />
     <result column="description" jdbcType="VARCHAR" property="description" />
@@ -85,13 +85,13 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
 
-  <insert id="insert" parameterType="cn.geek51.domain.FileUpload">
+  <insert id="insert" parameterType="top.weidaboy.domain.FileUpload">
     insert into fileupload (id, title, description,
       emp_id, path, created_time)
     values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR},
       #{username,jdbcType=VARCHAR}, #{path,jdbcType=VARCHAR},#{filename, jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="cn.geek51.domain.FileUpload">
+  <insert id="insertSelective" parameterType="top.weidaboy.domain.FileUpload">
     insert into fileupload
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -140,7 +140,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="cn.geek51.domain.Department">
+  <update id="updateByPrimaryKeySelective" parameterType="top.weidaboy.domain.Department">
     update fileupload
     <set>
       <if test="title != null">
@@ -164,7 +164,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="cn.geek51.domain.Department">
+  <update id="updateByPrimaryKey" parameterType="top.weidaboy.domain.Department">
     update fileupload
     set name = #{name,jdbcType=VARCHAR},
       description = #{description,jdbcType=VARCHAR},

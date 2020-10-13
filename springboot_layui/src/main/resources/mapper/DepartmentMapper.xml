@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.geek51.domain.Department">
-  <resultMap id="BaseResultMap" type="cn.geek51.domain.Department">
+<mapper namespace="top.weidaboy.domain.Department">
+  <resultMap id="BaseResultMap" type="top.weidaboy.domain.Department">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="description" jdbcType="VARCHAR" property="description" />
@@ -63,13 +63,13 @@
     delete from department
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="cn.geek51.domain.Department">
+  <insert id="insert" parameterType="top.weidaboy.domain.Department">
     insert into department (id, name, description, 
       created_time)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
       #{createdTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="cn.geek51.domain.Department">
+  <insert id="insertSelective" parameterType="top.weidaboy.domain.Department">
     insert into department
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -100,7 +100,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="cn.geek51.domain.Department">
+  <update id="updateByPrimaryKeySelective" parameterType="top.weidaboy.domain.Department">
     update department
     <set>
       <if test="name != null">
@@ -115,7 +115,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="cn.geek51.domain.Department">
+  <update id="updateByPrimaryKey" parameterType="top.weidaboy.domain.Department">
     update department
     set name = #{name,jdbcType=VARCHAR},
       description = #{description,jdbcType=VARCHAR},
